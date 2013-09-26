@@ -1,0 +1,3 @@
+include myapp/config/deployment.ini_tmpl
+recursive-include myapp/public *
+recursive-include myapp/templates *
