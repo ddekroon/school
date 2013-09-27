@@ -20,9 +20,9 @@ def make_map(config):
 
     # CUSTOM ROUTES HERE
 
-    map.connect('mapping0', '/', controller='application', action='lab1')
+    map.connect('mapping0', '/', controller='mainController', action='lab1')
+    map.connect('mapping1', '/:userid', controller='mainController', action='lab2', userid='[nobody]')
     map.connect('/{controller}/{action}')
     map.connect('/{controller}/{action}/{id}')
-    map.connect('mapping3', '/:userid/:age', controller='application', action='lab2', userid='[nobody]', age='25')
 
     return map
