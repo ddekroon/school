@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 8
-_modified_time = 1380245212.461996
+_modified_time = 1380504326.960784
 _enable_loop = True
 _template_filename = '/media/derek/Files/workspace/school/cis3210 networking/myapp/myapp/templates/lab2.mako'
 _template_uri = '/lab2.mako'
@@ -18,21 +18,52 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         c = context.get('c', UNDEFINED)
+        endfor = context.get('endfor', UNDEFINED)
         __M_writer = context.writer()
         # SOURCE LINE 1
-        __M_writer(u'<html>\n<head>\n<title>Lab 2</title>\n</head>\n<body>\n<form name="lab2form" action="" method="PUT">\n<h1>')
-        # SOURCE LINE 7
-        __M_writer(escape( c.userid))
-        __M_writer(u'</h1>\n<p>Userid:\n<input type="text" name="userid" value= ')
-        # SOURCE LINE 9
-        __M_writer(escape(c.userid))
-        __M_writer(u' />\n</p>\n<p>\n<input type="submit" name="submit" value="submit using PUT" />\n</p>\n</form>\n<form name="lab2form" action="" method="POST">\n<h1>')
-        # SOURCE LINE 16
-        __M_writer(escape( c.useridPost))
-        __M_writer(u'</h1>\n<p>Userid:\n<input type="text" name="useridPost" value= ')
+
+        import json
+        
+        usernames = []
+        for user in c.userids:
+            usernames.append(user)
+        endfor
+        
+        
+        __M_locals_builtin_stored = __M_locals_builtin()
+        __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['json','usernames','user'] if __M_key in __M_locals_builtin_stored]))
+        # SOURCE LINE 8
+        __M_writer(u'\n<html>\n<head>\n<title>Lab 2</title>\n<script src=\'/js/jquery.js\'></script>\n<link type=\'text/css\' rel=\'stylesheet\' href=\'/css/style.css\'>\n\n</head>\n<body>\n<form name="lab2form" action="" method="POST">\n')
         # SOURCE LINE 18
-        __M_writer(escape(c.useridPost))
-        __M_writer(u' />\n</p>\n<p>\n<input type="submit" name="submit" value="submit using POST" />\n</p>\n</form>\n</body>\n</html>\n')
+        counter = 0 
+        
+        __M_locals_builtin_stored = __M_locals_builtin()
+        __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['counter'] if __M_key in __M_locals_builtin_stored]))
+        __M_writer(u"\n<table class='userTable'>\n    <tr>\n        <th>UserID</th><th>Attribute</th><th>Del</th>\n    </tr>\n")
+        # SOURCE LINE 23
+        for user in usernames:
+            # SOURCE LINE 24
+            __M_writer(u"    <tr>\n    <td>\n    <input type='text' name='userid' value='")
+            # SOURCE LINE 26
+            __M_writer(escape(user))
+            __M_writer(u"' />\n    </td><td>\n        <input type='text' name='attributes' value='")
+            # SOURCE LINE 28
+            __M_writer(escape(c.attributes[counter]))
+            __M_writer(u"' />\n    </td><td>\n    <button name='delName' value='")
+            # SOURCE LINE 30
+            __M_writer(escape(counter))
+            __M_writer(u"'>Delete User</button>\n    </td></tr>\n    ")
+            # SOURCE LINE 32
+ 
+            counter = counter + 1 
+            
+            
+            __M_locals_builtin_stored = __M_locals_builtin()
+            __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['counter'] if __M_key in __M_locals_builtin_stored]))
+            # SOURCE LINE 34
+            __M_writer(u'\n')
+        # SOURCE LINE 36
+        __M_writer(u'    <tr>\n\t<td colspan=3>\n    <input type=\'submit\' name=\'updateData\' class=\'centreButton\' value=\'Update Data\' />\n\t</td>\n    </tr>\n    </table>\n    <h1>New User</h1>\n    <p>Userid:\n    <input type="text" name="userid"  />\n    </p>\n    <p>\n    <input type="submit" name="submit" value="Add User" />\n    </p>\n</form>\n</body>\n </html>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()

@@ -10,16 +10,29 @@ log = logging.getLogger(__name__)
 class MaincontrollerController(BaseController):
 
     def lab2(self, userid):
+        c.attributes = request.params.getall('attributes')
         if 'userid' in request.params:
-            c.userid = request.params['userid']
+            userids = request.params.getall('userid')
         else:
-            c.userid = userid
-        
-        if 'useridPost' in request.params:
-            c.useridPost = request.params['useridPost']
-        else:
-            c.useridPost = 'N/A'
+            userids = [userid]
 
+        if 'updateData' in request.params:
+            del userids[-1]
+
+
+        if 'delName' in request.params:
+            toDelete = request.params['delName']
+            del userids[int(toDelete)]
+            del userids[-1]
+            del c.attributes[int(toDelete)]
+
+        c.userids = userids
+        count = 0
+        for user in c.userids:
+            if count >= len(c.attributes):
+                c.attributes.append('')
+
+            count += 1
         return render('/lab2.mako')
 
     def lab1(self):
