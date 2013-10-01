@@ -1,19 +1,9 @@
-This file is for you to describe the myapp application. Typically
-you would include information such as the information below:
+Derek Dekroon
+0709999
+ddekroon@uoguelph.ca
 
-Installation and Setup
-======================
+Networking lab 2
 
-Install ``myapp`` using easy_install::
+To run this lab, run the paster server --reload development.ini on the command line then go to 127.0.0.1:5000/users/
 
-    easy_install myapp
-
-Make a config file as follows::
-
-    paster make-config myapp config.ini
-
-Tweak the config file as appropriate and then setup the application::
-
-    paster setup-app config.ini
-
-Then you are ready to go.
+You can add a userid off the command line by /users/:userid. You can also add users using the input form on the page. The users that get inputted have a userid, and an attribute field. Any users can be deleted and there is one large delete button at the bottom of the users table. Feel free to email me with any questions!!

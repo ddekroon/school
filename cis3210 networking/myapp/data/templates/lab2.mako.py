@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 8
-_modified_time = 1380504326.960784
+_modified_time = 1380505566.427305
 _enable_loop = True
 _template_filename = '/media/derek/Files/workspace/school/cis3210 networking/myapp/myapp/templates/lab2.mako'
 _template_uri = '/lab2.mako'
@@ -63,7 +63,7 @@ def render_body(context,**pageargs):
             # SOURCE LINE 34
             __M_writer(u'\n')
         # SOURCE LINE 36
-        __M_writer(u'    <tr>\n\t<td colspan=3>\n    <input type=\'submit\' name=\'updateData\' class=\'centreButton\' value=\'Update Data\' />\n\t</td>\n    </tr>\n    </table>\n    <h1>New User</h1>\n    <p>Userid:\n    <input type="text" name="userid"  />\n    </p>\n    <p>\n    <input type="submit" name="submit" value="Add User" />\n    </p>\n</form>\n</body>\n </html>\n')
+        __M_writer(u'    <tr>\n\t<td colspan=2>\n            <input type=\'submit\' name=\'updateData\' class=\'centreButton\' value=\'Update Data\' />\n        </td><td>\n            <button name=\'deleteAll\' value=\'1\'>Delete All</button>\n        </td>\n    </tr>\n    </table>\n    <h1>New User</h1>\n    <p>Userid:\n    <input type="text" name="userid"  />\n    </p>\n    <p>\n    <input type="submit" name="submit" value="Add User" />\n    </p>\n</form>\n</body>\n </html>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()

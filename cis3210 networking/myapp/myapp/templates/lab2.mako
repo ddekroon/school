@@ -34,9 +34,11 @@ endfor
     %>
 % endfor
     <tr>
-	<td colspan=3>
-    <input type='submit' name='updateData' class='centreButton' value='Update Data' />
-	</td>
+	<td colspan=2>
+            <input type='submit' name='updateData' class='centreButton' value='Update Data' />
+        </td><td>
+            <button name='deleteAll' value='1'>Delete All</button>
+        </td>
     </tr>
     </table>
     <h1>New User</h1>

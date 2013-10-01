@@ -33,6 +33,14 @@ class MaincontrollerController(BaseController):
                 c.attributes.append('')
 
             count += 1
+    
+        if 'deleteAll' in request.params:
+            print "something"
+            print c.attributes
+            del userids[:]
+            del c.attributes[:]
+            print c.attributes
+
         return render('/lab2.mako')
 
     def lab1(self):
