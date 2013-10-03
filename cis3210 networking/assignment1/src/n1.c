@@ -1,32 +1,20 @@
 #include "nodeFunctions.h"
 #include <string.h>
 
-int main(args) {
-  char msg[30]; 
-  char * link1 = "links/link1";
-  char * link2="links/link2";
-  int tmpFile1, tmpFile2;
 
-    fprintf(stdout, "Please enter the command to send to other nodes\n");
+int main()
+{
+  char msg[50];
+  char * link1 = "links/link1", *link2 = "links/link2";
+
+  while(strcmp(msg, "q\n") != 0) {
+    fprintf(stdout, "Please enter your message (q to quit)\n");
     fgets(msg, 30, stdin);
 
-    fprintf(stderr, "message - %s\n", msg);
-    mkfifo(link1, 0666);
+    writeToLink(link1, msg);
+    writeToLink(link2, msg);
     
-    fprintf(stdout, "Made fifo");
-    tmpFile1 = open(link1, O_WRONLY);
-    
-    fprintf(stderr, "past creating link");
-    
-    write(tmpFile1, msg, sizeof(msg));
-    close(tmpFile1);
+  }
 
-    fprintf(stderr, "okay");
-
-    mkfifo(link2, 0666);
-    tmpFile2 = open(link2, O_WRONLY);
-    write(tmpFile2, msg, sizeof(msg));
-    close(tmpFile2);
- 
   return 0;
 }

@@ -9,40 +9,31 @@ COMMON_FILES = src/nodeFunctions.c src/nodeFunctions.h
 
 all:	node1 node2 node3 node4 node5 node6 node7
 
-node1:	n1.o
-	$(CC) $(CFLAGS) -o $(BIN)n1 n1.o
-n1.o:	
-	$(CC) $(LDFLAGS) -c $(SRC)n1.c $(COMMON_FILES)
+node1:	nodeFunctions.o
+	$(CC) $(CFLAGS) nodeFunctions.o $(SRC)n1.c -o $(BIN)n1
 
-node2:	n2.o
-	$(CC) $(CFLAGS) -o $(BIN)n2 n2.o
-n2.o:	
-	$(CC) $(LDFLAGS) -c $(SRC)n2.c $(COMMON_FILES)
 
-node3:	n3.o
-	$(CC) $(CFLAGS) -o $(BIN)n3 n3.o
-n3.o:	
-	$(CC) $(LDFLAGS) -c $(SRC)n3.c $(COMMON_FILES)
+node2:	nodeFunctions.o
+	$(CC) $(CFLAGS) nodeFunctions.o $(SRC)n2.c -o $(BIN)n2
 
-node4:	n4.o
-	$(CC) $(CFLAGS) -o $(BIN)n4 n4.o
-n4.o:	
-	$(CC) $(LDFLAGS) -c $(SRC)n4.c $(COMMON_FILES)
+node3:	nodeFunctions.o
+	$(CC) $(CFLAGS) nodeFunctions.o $(SRC)n3.c -o $(BIN)n3
 
-node5:	n5.o
-	$(CC) $(CFLAGS) -o $(BIN)n5 n5.o
-n5.o:	
-	$(CC) $(LDFLAGS) -c $(SRC)n5.c $(COMMON_FILES)
+node4:	nodeFunctions.o
+	$(CC) $(CFLAGS) nodeFunctions.o $(SRC)n4.c -o $(BIN)n4
 
-node6:	n6.o
-	$(CC) $(CFLAGS) -o $(BIN)n6 n6.o
-n6.o:	
-	$(CC) $(LDFLAGS) -c $(SRC)n6.c $(COMMON_FILES)
+node5:	nodeFunctions.o
+	$(CC) $(CFLAGS) nodeFunctions.o $(SRC)n5.c -o $(BIN)n5
 
-node7:	n7.o
-	$(CC) $(CFLAGS) -o $(BIN)n7 n7.o
-n7.o:	
-	$(CC) $(LDFLAGS) -c $(SRC)n7.c $(COMMON_FILES)
+node6:	nodeFunctions.o
+	$(CC) $(CFLAGS) nodeFunctions.o $(SRC)n6.c -o $(BIN)n6
+
+node7:	nodeFunctions.o
+	$(CC) $(CFLAGS) nodeFunctions.o $(SRC)n7.c -o $(BIN)n7
+
+nodeFunctions.o:
+	$(CC) $(LDFLAGS) -c $(COMMON_FILES)
+
 
 clean:
 	rm -rf *o bin/* links/*
