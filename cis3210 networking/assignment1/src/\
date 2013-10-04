@@ -7,7 +7,7 @@ int main()
 
   while(strcmp(msg, "q\n") != 0) {
     readFromLink(linkFile1, msg);
-    fprintf(stdout, "n5 Message %s Received\n", msg);
+    printf("n5 Message %s Received\n", msg);
 
     writeToLink(linkFile1, msg);
   }

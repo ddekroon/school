@@ -4,7 +4,10 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <string.h>
+#include <errno.h>
 
 void createLinks();
+void destroyLinks();
 void writeToLink(char * linkName, char * msg);
-char * readFromLink(char * linkName);
+void readFromLink(char * linkName, char * returnMsg);
