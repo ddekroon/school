@@ -7,7 +7,7 @@ CFLAGS= -Wall -g
 LDFLAGS=
 COMMON_FILES = src/nodeFunctions.c src/nodeFunctions.h
 
-all:	node1 node2 node3 node4 node5 node6 node7
+all:	clean node1 node2 node3 node4 node5 node6 node7
 
 node1:	nodeFunctions.o
 	$(CC) $(CFLAGS) nodeFunctions.o $(SRC)n1.c -o $(BIN)n1
@@ -38,4 +38,4 @@ clean:
 	rm -rf *o bin/* links/*
 
 run:
-	bin/n5 & bin/n4 & bin/n3 & bin/n2 & bin/n1
+	bin/n7 & bin/n6 & bin/n5 & bin/n4 & bin/n3 & bin/n2 & bin/n1

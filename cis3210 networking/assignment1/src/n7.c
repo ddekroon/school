@@ -9,7 +9,7 @@ int main()
     readFromLink(linkFile1, msg);
     printf("n7 Message %s Received\n", msg);
 
-    writeToLink(linkFile1, msg);
+    writeToLink(linkFile1, "Message Received");
   }
 
   return 0;

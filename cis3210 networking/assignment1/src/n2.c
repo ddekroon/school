@@ -10,7 +10,7 @@ int main()
 
     writeToLink(linkFile2, msg);
     readFromLink(linkFile2, msg);
-    writeToLink(linkFile1, msg);
+    writeToLink(linkFile1, "Message Received");
   }
   return 0;
 }

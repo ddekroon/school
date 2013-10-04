@@ -9,8 +9,8 @@ int main()
     readFromLink(linkFile1, msg);
     printf("n4 Message %s Received\n", msg);
 
-    writeToLink(linkFile1, msg);
+    writeToLink(linkFile1, "Message Received");
   }
-
+  fprintf(stderr, "n4 exiting\n");
   return 0;
 }
