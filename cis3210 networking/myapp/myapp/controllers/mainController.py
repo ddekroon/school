@@ -9,7 +9,7 @@ log = logging.getLogger(__name__)
 
 class MaincontrollerController(BaseController):
 
-    def lab2(self, userid):
+    def users(self, userid):
         c.attributes = request.params.getall('attributes')
         if 'userid' in request.params:
             userids = request.params.getall('userid')
@@ -41,10 +41,13 @@ class MaincontrollerController(BaseController):
             del c.attributes[:]
             print c.attributes
 
-        return render('/lab2.mako')
+        return render('/users.mako')
 
     def lab1(self):
+        return render('/lab1.mako')
+
+    def index(self):
         # Return a rendered template
         #return render('/application.mako')
         # or, return a string
-        return render('/lab1.mako')
+        return render('/index.mako')
