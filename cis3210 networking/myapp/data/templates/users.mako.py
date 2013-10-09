@@ -3,18 +3,18 @@ from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
-_magic_number = 8
-_modified_time = 1381268487.758689
-_enable_loop = True
-_template_filename = '/media/derek/Files/workspace/school/cis3210 networking/myapp/myapp/templates/users.mako'
-_template_uri = '/users.mako'
-_source_encoding = 'utf-8'
+_magic_number = 6
+_modified_time = 1381359360.678401
+_template_filename='/media/Files/workspace/school/cis3210 networking/myapp/myapp/templates/users.mako'
+_template_uri='/users.mako'
+_template_cache=cache.Cache(__name__, _modified_time)
+_source_encoding='utf-8'
 from webhelpers.html import escape
 _exports = []
 
 
 def render_body(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
+    context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         c = context.get('c', UNDEFINED)
@@ -33,7 +33,7 @@ def render_body(context,**pageargs):
         __M_locals_builtin_stored = __M_locals_builtin()
         __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['json','usernames','user'] if __M_key in __M_locals_builtin_stored]))
         # SOURCE LINE 8
-        __M_writer(u'\n<html>\n<head>\n<title>Lab 2</title>\n<script src=\'/js/jquery.js\'></script>\n<link type=\'text/css\' rel=\'stylesheet\' href=\'/css/style.css\'>\n\n</head>\n<body>\n<form name="lab2form" action="" method="POST">\n')
+        __M_writer(u'\n<html>\n<head>\n<title>Derek Dekroon 0709999</title>\n<script src=\'/js/jquery.js\'></script>\n<link type=\'text/css\' rel=\'stylesheet\' href=\'/css/style.css\'>\n\n</head>\n<body>\n<form name="lab2form" action="" method="POST">\n')
         # SOURCE LINE 18
         counter = 0 
         
@@ -62,6 +62,7 @@ def render_body(context,**pageargs):
             __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['counter'] if __M_key in __M_locals_builtin_stored]))
             # SOURCE LINE 34
             __M_writer(u'\n')
+            pass
         # SOURCE LINE 36
         __M_writer(u'    <tr>\n\t<td colspan=2>\n            <input type=\'submit\' name=\'updateData\' class=\'centreButton\' value=\'Update Data\' />\n        </td><td>\n            <button name=\'deleteAll\' value=\'1\'>Delete All</button>\n        </td>\n    </tr>\n    </table>\n    <h1>New User</h1>\n    <p>Userid:\n    <input type="text" name="userid"  />\n    </p>\n    <p>\n    <input type="submit" name="submit" value="Add User" />\n    </p>\n</form>\n</body>\n </html>\n')
         return ''

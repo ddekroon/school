@@ -8,7 +8,7 @@ endfor
 %>
 <html>
 <head>
-<title>Lab 2</title>
+<title>Derek Dekroon 0709999</title>
 <script src='/js/jquery.js'></script>
 <link type='text/css' rel='stylesheet' href='/css/style.css'>
 
@@ -16,7 +16,7 @@ endfor
 <body>
 <form name="lab2form" action="" method="POST">
 <% counter = 0 %>
-<table class='userTable'>
+<table class='userTable' id='table1'>
     <tr>
         <th>UserID</th><th>Attribute</th><th>Del</th>
     </tr>
