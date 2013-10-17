@@ -10,36 +10,24 @@ log = logging.getLogger(__name__)
 class MaincontrollerController(BaseController):
 
     def users(self, userid):
-        c.attributes = request.params.getall('attributes')
-        if 'userid' in request.params:
-            userids = request.params.getall('userid')
+        if 'AddUser' in request.params:
+            c.newUsername = request.params['newUsername']
+            c.newUserSet = 1
+            c.newPassword = request.params['newPassword']
         else:
-            userids = [userid]
+            c.newUsername = ''
+            c.newUserSet = 0
+            c.newPassword = ''
 
-        if 'updateData' in request.params:
-            del userids[-1]
+        if 'delUser' in request.params:
+            c.toDelete = request.params['delUser']
+        else:
+            c.toDelete = 0 
 
-
-        if 'delName' in request.params:
-            toDelete = request.params['delName']
-            del userids[int(toDelete)]
-            del userids[-1]
-            del c.attributes[int(toDelete)]
-
-        c.userids = userids
-        count = 0
-        for user in c.userids:
-            if count >= len(c.attributes):
-                c.attributes.append('')
-
-            count += 1
-    
-        if 'deleteAll' in request.params:
-            print "something"
-            print c.attributes
-            del userids[:]
-            del c.attributes[:]
-            print c.attributes
+        if 'delAllUsers' in request.params:
+            c.deleteAll = 1
+        else:
+            c.deleteAll = 0
 
         return render('/users.mako')
 
