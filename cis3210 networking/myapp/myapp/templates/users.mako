@@ -77,7 +77,7 @@ endfor
 %endif
 <form name="lab2form" action="" method="POST">
 <% counter = 0 %>
-<table class='userTable'>
+<table class='userTable' id='table1'>
     <tr>
         <th>ID</th><th>UserName</th><th>Password</th><th>Del</th>
     </tr>

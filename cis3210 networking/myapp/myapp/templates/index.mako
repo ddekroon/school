@@ -16,11 +16,15 @@
 	    <li><a href='/lab1'>Lab 1</a></li>
 	    <li><a href='/users'>Users Page</a></li>
 	</ul>
+<<<<<<< HEAD
         <div class='description'>
 		<h4>Lab 5</h4>
 		<p>To use this lab, go to the <a href='/users'>Users Page</a>. From there you can add a new user using the form at the bottom, delete a user using the delete individual users button, or delete all users. When you add a new user the username and password get escaped using the MySQLdb.escape_string() function. You must have something written in for both username AND password (strlen > 0) in order for the insert to work.
 		</p>
         </div>
+=======
+	<p>Select any of the links to go to the pages required for the lab you wish to do.</p>
+>>>>>>> 4987be0623aa45556bc88d0a278b3ce223b9f50a
     </div>
   </body>
 </html>

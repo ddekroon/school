@@ -3,6 +3,9 @@ def test_add():
 
 def test_subtract():
     a = 1
+    print "a is %s"%a
     b = a + 1
+    print "b is %s"%b
     c = b-1
+    print "c is %s"%c
     assert b-a == c
