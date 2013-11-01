@@ -16,15 +16,18 @@
 	    <li><a href='/lab1'>Lab 1</a></li>
 	    <li><a href='/users'>Users Page</a></li>
 	</ul>
-<<<<<<< HEAD
         <div class='description'>
-		<h4>Lab 5</h4>
-		<p>To use this lab, go to the <a href='/users'>Users Page</a>. From there you can add a new user using the form at the bottom, delete a user using the delete individual users button, or delete all users. When you add a new user the username and password get escaped using the MySQLdb.escape_string() function. You must have something written in for both username AND password (strlen > 0) in order for the insert to work.
-		</p>
+		<h4>Lab 6</h4>
+		<div class='list'><ol><li>To use this lab, go to the <a href='/users'>Users Page</a>.</li>
+<li>You'll probably need to create a user using the register option on the top navigation bar.</li> 
+<li>After you create a user you can log in using the log in form in the top navigation bar.</li>
+<li>When you log in a cookie will be created on the browser then you'll be redirected to the login page.</li>
+<li>You can go to /users, or /login and since you already have that cookie you'll automatically be directed to the successful login page.</li>
+<li>To delete the cookie, select the logout option in the navigation bar of the login page.</li>
+<li>The log out destroys the cookie, and from the log out page you can either log in or go to the users page.</li>
+		</ol></div>
         </div>
-=======
 	<p>Select any of the links to go to the pages required for the lab you wish to do.</p>
->>>>>>> 4987be0623aa45556bc88d0a278b3ce223b9f50a
     </div>
   </body>
 </html>
