@@ -3,18 +3,18 @@ from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
-_magic_number = 8
-_modified_time = 1382557287.486756
-_enable_loop = True
-_template_filename = '/media/derek/Files/workspace/school/cis3210 networking/myapp/myapp/templates/login.mako'
-_template_uri = '/login.mako'
-_source_encoding = 'utf-8'
+_magic_number = 6
+_modified_time = 1383346064.869236
+_template_filename='/media/Files/workspace/school/cis3210 networking/myapp/myapp/templates/login.mako'
+_template_uri='/login.mako'
+_template_cache=cache.Cache(__name__, _modified_time)
+_source_encoding='utf-8'
 from webhelpers.html import escape
 _exports = []
 
 
 def render_body(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
+    context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         __M_writer = context.writer()

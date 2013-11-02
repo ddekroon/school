@@ -2,6 +2,14 @@ Derek Dekroon
 0709999
 ddekroon@uoguelph.ca
 
+Networking lab 7
+
+To use this lab, go to 127.0.0.1:5000 then choose the flickr link.
+This lab is very simple but on that page I get 5 images for construction from the flickr API. I call the URL for flickr with my account login
+and password, then display the images using the function displayFlickr which I got from the guide. This lab is very easy but in the next lab I plan
+to make getting a different number possible, along with allowing the user to change what images show up.
+
+
 Networking lab 6
 \
 To run this lab, run the paster server --reload development.ini on the command line then go to 127.0.0.1:5000

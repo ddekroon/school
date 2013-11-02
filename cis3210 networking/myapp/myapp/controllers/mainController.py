@@ -10,15 +10,15 @@ log = logging.getLogger(__name__)
 
 
 def dbConnect():
-    #db = MySQLdb.connect(host="localhost",
-    #            user="root", # replace with your username
-    #            passwd="skittles", # replace with your password (student id number, including leading 0)
-    #            db="cis3210") # course database
-    
-    db = MySQLdb.connect(host="dursley.socs.uoguelph.ca",
-                user="ddekroon", # replace with your username
-                passwd="0709999", # replace with your password (student id number, including leading 0)
+    db = MySQLdb.connect(host="localhost",
+                user="root", # replace with your username
+                passwd="skittles", # replace with your password (student id number, including leading 0)
                 db="cis3210") # course database
+    
+    #db = MySQLdb.connect(host="dursley.socs.uoguelph.ca",
+    #            user="ddekroon", # replace with your username
+    #            passwd="0709999", # replace with your password (student id number, including leading 0)
+    #            db="cis3210") # course database
     return db
 
 class MaincontrollerController(BaseController):
@@ -69,27 +69,30 @@ class MaincontrollerController(BaseController):
 
             if data[0] != 0:
                 response.set_cookie('userid', username, max_age=180*24*3600 )
-                return render('/login.mako')
+                return render('login.mako')
             else:
                 c.loginError = 1
                 c.deleteAll = 0
                 c.toDelete = 0
                 c.newUserSet = 0
-                return render('/users.mako')
+                return render('users.mako')
     
     def logout(self):
         if response.delete_cookie('userid'):
             c.logoutSuccess = 0
         else:
             c.logoutSuccess = 1
-        return render('/logout.mako')    
+        return render('logout.mako')    
+
+    def main(self):
+	return render('main.mako')
 
     def lab1(self):
-        return render('/lab1.mako')
+        return render('lab1.mako')
 
     def index(self):
         # Return a rendered template
         #return render('/application.mako')
         # or, return a string
-        return render('/index.mako')
+        return render('index.mako')
 

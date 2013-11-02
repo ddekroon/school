@@ -28,6 +28,8 @@ def make_map(config):
     map.connect('mapping5', '/login', controller='mainController', action='login')
     map.connect('mapping6', '/login/', controller='mainController', action='login')
     map.connect('mapping7', '/logout', controller='mainController', action='logout')
+    map.connect('mapping8', '/main', controller='mainController', action='main')
+
     map.connect('/{controller}/{action}')
     map.connect('/{controller}/{action}/{id}')
 

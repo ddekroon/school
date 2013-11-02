@@ -2,15 +2,15 @@
 import json
 import MySQLdb
 
-db = MySQLdb.connect(host="dursley.socs.uoguelph.ca",
-                    user="ddekroon", # replace with your username
-                    passwd="0709999", # replace with your password (student id number, including leading 0)
-                    db="cis3210") # course database
-
-#db = MySQLdb.connect(host="localhost",
-#                    user="root", # replace with your username
-#                    passwd="skittles", # replace with your password (student id number, including leading 0)
+#db = MySQLdb.connect(host="dursley.socs.uoguelph.ca",
+#                    user="ddekroon", # replace with your username
+#                    passwd="0709999", # replace with your password (student id number, including leading 0)
 #                    db="cis3210") # course database
+
+db = MySQLdb.connect(host="localhost",
+                    user="root", # replace with your username
+                    passwd="skittles", # replace with your password (student id number, including leading 0)
+                    db="cis3210") # course database
 
 
 userDeleted = 0
