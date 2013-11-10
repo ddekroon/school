@@ -177,7 +177,7 @@ endfor
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
+            <li><a href="/">Menu</a></li>
             <li><a href="#" id='register'>Register</a></li>
             <li><a href="#" id='login'>Log In</a></li>
             <!-- <li class="dropdown">

@@ -12,6 +12,28 @@ body {
     text-align:center;
     margin:0;
 }
+
+div.userInput {
+	width:300px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.inputField {
+	width:100px;
+}
+
+.inputTable {
+	text-align:center;
+	padding:10px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.inputTable td {
+	padding:5px;
+}
+
 h1 {
     text-align:center;
     font-size:22px;
@@ -19,7 +41,7 @@ h1 {
 
 h3 {
     text-align:center;
-    font-size:14px;
+    font-size:16px;
 }
 
 .mainSection ul li {

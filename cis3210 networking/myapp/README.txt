@@ -2,6 +2,12 @@ Derek Dekroon
 0709999
 ddekroon@uoguelph.ca
 
+Networking lab 8
+
+To use this lab go to the deafult website and choose the flickr link (again).
+This time you'll be taken to a page with no data by default. Click the Flickr link in the tool bar at the top of the page. Fill in the pop up however you want and press check flick or hit enter. Your images should show up. If you don't put any input the program will catch it. By default only 1 image will show up.
+
+
 Networking lab 7
 
 To use this lab, go to 127.0.0.1:5000 then choose the flickr link.

@@ -85,7 +85,22 @@ class MaincontrollerController(BaseController):
         return render('logout.mako')    
 
     def main(self):
-	return render('main.mako')
+        if 'inputText' in request.params:
+            c.inputText = request.params['inputText']
+            if c.inputText == '':
+                c.noImages = 1
+                c.error = 'Please enter a string to search'
+                c.perPage = 0
+            else:
+                c.inputText = request.params['inputText']
+                c.perPage = request.params['numPictures']
+                c.noImages = 0
+        else:
+            c.inputText = ''
+            c.perPage = 0
+            c.noImages = 1
+            c.error = 'Please enter information to search flickr images'
+        return render('main.mako')
 
     def lab1(self):
         return render('lab1.mako')

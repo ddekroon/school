@@ -3,18 +3,18 @@ from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
-_magic_number = 6
-_modified_time = 1383346068.990951
-_template_filename='/media/Files/workspace/school/cis3210 networking/myapp/myapp/templates/logout.mako'
-_template_uri='/logout.mako'
-_template_cache=cache.Cache(__name__, _modified_time)
-_source_encoding='utf-8'
+_magic_number = 8
+_modified_time = 1384107182.194441
+_enable_loop = True
+_template_filename = '/media/derek/Files/workspace/school/cis3210 networking/myapp/myapp/templates/logout.mako'
+_template_uri = 'logout.mako'
+_source_encoding = 'utf-8'
 from webhelpers.html import escape
 _exports = []
 
 
 def render_body(context,**pageargs):
-    context.caller_stack._push_frame()
+    __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         c = context.get('c', UNDEFINED)
@@ -29,7 +29,6 @@ def render_body(context,**pageargs):
         else:
             # SOURCE LINE 92
             __M_writer(u"    <p class='panel panel-danger'>Error logging out, credentials don't exist</p>\n")
-            pass
         # SOURCE LINE 94
         __M_writer(u'    </div> <!-- /container -->\n  </body>\n</html>\n')
         return ''

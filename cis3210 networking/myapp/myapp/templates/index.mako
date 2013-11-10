@@ -20,10 +20,8 @@
         <div class='description'>
 		<h4>Lab 7</h4>
 		<div class='list'><p>To use this lab, go to the <a href='/main'>Flickr Page</a>.
-                This lab is very simple but on that page I get 5 images for construction from the flickr API. I call the URL for flickr with my account login
-		and password, then display the images using the function displayFlickr which I got from the guide. This lab is very easy but in the next lab I plan
-		to make getting a different number possible, along with allowing the user to change what images show up.
-		</p></div>
+This time you'll be taken to a page with no data by default. Click the Flickr link in the tool bar at the top of the page. Fill in the pop up however you want and press check flick or hit enter. Your images should show up. If you don't put any input the program will catch it. By default only 1 image will show up.
+            </p></div>
         </div>
 	<p>Select any of the links to go to the pages required for the lab you wish to do.</p>
     </div>

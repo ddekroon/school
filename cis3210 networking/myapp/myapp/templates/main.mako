@@ -16,43 +16,99 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/theme.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/myStyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/jquery-ui.css" />
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/holder.js"></script> 
+    <script src="js/jquery-ui.js"></script>
+	<script>
+		$(document).ready(function() {
+			$( "#search-menu" ).dialog({
+			autoOpen: false,
+			height: 300,
+			width: 350,
+			modal: true,
+			buttons: {
+			  "Get Pictures": function() {
+				$("#searchForm").submit();
+			  },
+			  "Cancel": function() {
+				$( this ).dialog( "close" );
+			  },
+			}
+			});
 
+			$( "#searchMenu" ).button().click(function() {
+			  $( "#search-menu" ).dialog( "open" );
+			});
+		});
+    </script>
     
   </head>
 
   <body>
+	  
+	<div id="search-menu" title="Search Flickr">
+      <p class="validateTips">All form fields are required.</p>
+		<form method="post" action="/main" id="searchForm">
+			<table>
+				<tr>
+					<td>
+						Search String
+					</td><td>
+						<input class='inputField'  type='text' name='inputText' class="text ui-widget-content ui-corner-all" />
+					</td>
+				</tr><tr>
+					<td>
+						# of Pictures
+					</td><td>
+						<select class='inputField' name="numPictures" class="text ui-widget-content ui-corner-all">
+							% for x in range(1, 11):
+							<option value=${x}>${x}</option>
+							%endfor
+						</select>
+					</td>
+				</tr>
+			</table>	
+		</form>
+    </div>
 
     <!-- Fixed navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Log in page</a>
+          <a class="navbar-brand" href="#">Main page</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a id='logout' href="/logout">Log Out</a></li>
+            <li><a href="/">Menu</a></li>
+            <li><a href="#" id='searchMenu'>Search Flickr</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
     <div class="container theme-showcase">
-	<div style='height:200px;' id='picContainer'></div>
+		%if c.noImages == 1:
+			<h2>${c.error}</h2>
+		%endif
+		<div style='height:300px;' id='picContainer'></div>
     </div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/js/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/holder.js"></script> 
+    
     <script type='text/javascript'>
     function flickrHandler(rsp) {
       //window.rsp = rsp;
@@ -73,6 +129,6 @@
       $('#picContainer').html(s);
     }
     </script>
-    <script src="http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=98321bf69d4fa7cce3f182ecf1c29376&tags=construction&per_page=5&format=json&jsoncallback=flickrHandler"></script> 
+    <script src="http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=954c721991666c743ffe5d4a1e6544f1&tags=${c.inputText}&per_page=${c.perPage}&format=json&jsoncallback=flickrHandler"></script> 
   </body>
 </html>
