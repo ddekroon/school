@@ -4,9 +4,9 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 6
-_modified_time = 1383346064.869236
+_modified_time = 1385353389.965171
 _template_filename='/media/Files/workspace/school/cis3210 networking/myapp/myapp/templates/login.mako'
-_template_uri='/login.mako'
+_template_uri='login.mako'
 _template_cache=cache.Cache(__name__, _modified_time)
 _source_encoding='utf-8'
 from webhelpers.html import escape

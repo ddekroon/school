@@ -3,18 +3,18 @@ from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
-_magic_number = 8
-_modified_time = 1384110185.358175
-_enable_loop = True
-_template_filename = '/media/derek/Files/workspace/school/cis3210 networking/myapp/myapp/templates/main.mako'
-_template_uri = 'main.mako'
-_source_encoding = 'utf-8'
+_magic_number = 6
+_modified_time = 1385353347.321643
+_template_filename='/media/Files/workspace/school/cis3210 networking/myapp/myapp/templates/main.mako'
+_template_uri='main.mako'
+_template_cache=cache.Cache(__name__, _modified_time)
+_source_encoding='utf-8'
 from webhelpers.html import escape
 _exports = []
 
 
 def render_body(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
+    context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         range = context.get('range', UNDEFINED)
@@ -30,6 +30,7 @@ def render_body(context,**pageargs):
             __M_writer(u'>')
             __M_writer(escape(x))
             __M_writer(u'</option>\n')
+            pass
         # SOURCE LINE 78
         __M_writer(u'\t\t\t\t\t\t</select>\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t</table>\t\n\t\t</form>\n    </div>\n\n    <!-- Fixed navbar -->\n    <div class="navbar navbar-inverse navbar-fixed-top">\n      <div class="container">\n        <div class="navbar-header">\n          <a class="navbar-brand" href="#">Main page</a>\n        </div>\n        <div class="navbar-collapse collapse">\n          <ul class="nav navbar-nav">\n            <li><a href="/">Menu</a></li>\n            <li><a href="#" id=\'searchMenu\'>Search Flickr</a></li>\n          </ul>\n        </div><!--/.nav-collapse -->\n      </div>\n    </div>\n\n    <div class="container theme-showcase">\n')
         # SOURCE LINE 101
@@ -38,8 +39,9 @@ def render_body(context,**pageargs):
             __M_writer(u'\t\t\t<h2>')
             __M_writer(escape(c.error))
             __M_writer(u'</h2>\n')
+            pass
         # SOURCE LINE 104
-        __M_writer(u'\t\t<div style=\'height:300px;\' id=\'picContainer\'></div>\n    </div> <!-- /container -->\n\n\n    <!-- Bootstrap core JavaScript\n    ================================================== -->\n    <!-- Placed at the end of the document so the pages load faster -->\n    \n    <script type=\'text/javascript\'>\n    function flickrHandler(rsp) {\n      //window.rsp = rsp;\n      var s = "";\n      // http://farm{id}.static.flickr.com/{server-id}/{id}_{secret}_[mstb].jpg\n      // http://www.flickr.com/photos/{user-id}/{photo-id}\n      s = "total number is: " + rsp.photos.photo.length + "<br/>";\n    \n      for (var i=0; i < rsp.photos.photo.length; i++) {\n        photo = rsp.photos.photo[i];\n        t_url = "http://farm" + photo.farm + ".static.flickr.com/" + \n          photo.server + "/" + photo.id + "_" + photo.secret + "_" + "t.jpg";\n        p_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;\n        s +=  \'<a href="\' + p_url + \'">\' + \'<img style="padding:3px;height:200px;width:200px;" alt="\'+ photo.title + \n          \'"src="\' + t_url + \'"/>\' + \'</a>\';\n      }\n      //alert(s);\n      $(\'#picContainer\').html(s);\n    }\n    </script>\n    <script src="http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=954c721991666c743ffe5d4a1e6544f1&tags=')
+        __M_writer(u'\t\t<div style=\'height:300px;\' id=\'picContainer\'></div>\n    </div> <!-- /container -->\n\n\n    <!-- Bootstrap core JavaScript\n    ================================================== -->\n    <!-- Placed at the end of the document so the pages load faster -->\n    \n    <script type=\'text/javascript\'>\n    function flickrHandler(rsp) {\n      //window.rsp = rsp;\n      var s = "";\n      // http://farm{id}.static.flickr.com/{server-id}/{id}_{secret}_[mstb].jpg\n      // http://www.flickr.com/photos/{user-id}/{photo-id}\n      s = "total number is: " + rsp.photos.photo.length + "<br/>";\n    \n      for (var i=0; i < rsp.photos.photo.length; i++) {\n        photo = rsp.photos.photo[i];\n        t_url = "http://farm" + photo.farm + ".static.flickr.com/" + \n          photo.server + "/" + photo.id + "_" + photo.secret + "_" + "t.jpg";\n        p_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;\n        s +=  \'<a href="\' + p_url + \'">\' + \'<img style="padding:3px;height:200px;width:200px;" alt="\'+ photo.title + \n          \'"src="\' + t_url + \'"/>\' + \'</a>\';\n      }\n      //alert(s);\n      $(\'#picContainer\').html(s);\n    }\n    </script>\n    <script src="http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=2bfe2a46e8884e2bcd7cb20be75b7db6&tags=')
         # SOURCE LINE 132
         __M_writer(escape(c.inputText))
         __M_writer(u'&per_page=')

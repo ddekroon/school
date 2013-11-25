@@ -129,6 +129,6 @@
       $('#picContainer').html(s);
     }
     </script>
-    <script src="http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=954c721991666c743ffe5d4a1e6544f1&tags=${c.inputText}&per_page=${c.perPage}&format=json&jsoncallback=flickrHandler"></script> 
+    <script src="http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=2bfe2a46e8884e2bcd7cb20be75b7db6&tags=${c.inputText}&per_page=${c.perPage}&format=json&jsoncallback=flickrHandler"></script> 
   </body>
 </html>

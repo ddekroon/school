@@ -1,68 +1,3 @@
-<%
-import json
-import MySQLdb
-
-#db = MySQLdb.connect(host="dursley.socs.uoguelph.ca",
-#                    user="ddekroon", # replace with your username
-#                    passwd="0709999", # replace with your password (student id number, including leading 0)
-#                    db="cis3210") # course database
-
-db = MySQLdb.connect(host="localhost",
-                    user="root", # replace with your username
-                    passwd="skittles", # replace with your password (student id number, including leading 0)
-                    db="cis3210") # course database
-
-
-userDeleted = 0
-if c.deleteAll == 1:
-    dbCursor = db.cursor()
-    dbCursor.execute("""DELETE FROM users""")
-    db.commit()
-    userDeleted = 2
-
-if c.toDelete != 0:
-    dbCursor = db.cursor()
-    dbCursor.execute("""DELETE FROM users WHERE userid = %s""", (c.toDelete,))
-    db.commit()
-    userDeleted = 1
-
-
-userAdded = 0
-addError = 0
-if c.newUserSet == 1:
-    dbCursor = db.cursor()
-    if c.newUsername == '':
-        addError = 1
-    if c.newPassword == '':
-        addError = 1
-    if c.newUsername != '' and c.newPassword != '':
-        db.query("""SELECT count(*) as numRows, MAX(userid) as maxUserID FROM users""")
-        result = db.store_result()
-        data = result.fetch_row(1, 1)
-        if data[0]['numRows'] == 0:
-            newUserID = 1
-        else:
-            newUserID = data[0]['maxUserID'] + 1
-        newUsername = MySQLdb.escape_string(c.newUsername)
-        newPassword = MySQLdb.escape_string(c.newPassword)
-        dbCursor.execute("""INSERT INTO users (userid, username, password) VALUES (%s, %s, %s)""", (newUserID, newUsername, newPassword))
-        db.commit()
-        userAdded = 1
-    
-db.query("""SELECT * FROM users""")
-r = db.store_result()
-tuples = r.fetch_row(0)
-db.close()
-
-usernames = []
-for user in tuples:
-    usernames.append(user)
-endfor
-%>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -200,16 +135,16 @@ endfor
 
     <div class="container theme-showcase">
       
-% if userAdded == 1:
+% if c.userAdded == 1:
     <p class='panel panel-success'>User ${c.newUsername} added</p>
 %endif
-%if userDeleted == 1:
+%if c.userDeleted == 1:
     <p class='panel panel-success'>User deleted</p>
 %endif
-%if userDeleted == 2:
+%if c.userDeleted == 2:
     <p class='panel panel-success'>All users deleted</p>
 %endif
-%if addError == 1:
+%if c.addError == 1:
     <p class='panel panel-warning'>Error adding user, information not filled out correctly</p>
 %endif
 %if c.loginError == 1:
@@ -221,10 +156,10 @@ endfor
     <tr>
         <th>ID</th><th class='second-column'>UserName</th><th class='third-column'>Del</th>
     </tr>
-% for user in usernames:
+% for userObj in c.user:
     <tr>
-    <td class='first-column'>${user[0]}</td><td class='second-column'>${user[1]}</td><td class='third-column'>
-        <button name='delUser' value='${user[0]}'>Delete User</button>
+    <td class='first-column'>${userObj[0]}</td><td class='second-column'>${userObj[1]}</td><td class='third-column'>
+        <button name='delUser' value='${userObj[0]}'>Delete User</button>
     </td></tr>
     <% 
     counter = counter + 1 

@@ -21,32 +21,74 @@ def dbConnect():
     #            db="cis3210") # course database
     return db
 
+def getUsers(db):
+    db.query("""SELECT userid, username FROM users""")
+    result = db.store_result()
+    tuples = result.fetch_row(0)
+    db.close()
+
+    users = []
+    for row in tuples:
+        users.append(row)
+    return users
+
+
+
 class MaincontrollerController(BaseController):
 
 
     def users(self, userid):
+        db = dbConnect()
+
         if request.cookies.get('userid'):
             return render('login.mako')
-     
+        
+        c.addError = 0
+        c.userAdded = 0
         if 'newUsername' in request.params:
-            c.newUsername = request.params['newUsername']
+            newUsername = request.params['newUsername']
             c.newUserSet = 1
-            c.newPassword = request.params['newPassword']
-        else:
-            c.newUsername = ''
-            c.newUserSet = 0
-            c.newPassword = ''
+            newPassword = request.params['newPassword']
+            dbCursor = db.cursor()
+            if newUsername == '':
+                c.addError = 1
+            if newPassword == '':
+                c.addError = 1
+            if newUsername != '' and newPassword != '':
+                db.query("""SELECT count(*) as numRows, MAX(userid) as maxUserID FROM users""")
+                result = db.store_result()
+                data = result.fetch_row(1, 1)
+                if data[0]['numRows'] == 0:
+                    newUserID = 1
+                else:
+                    newUserID = data[0]['maxUserID'] + 1
+                newUsername = MySQLdb.escape_string(newUsername)
+                newPassword = MySQLdb.escape_string(newPassword)
+                c.newUsername = newUsername
+                c.newPassword = newPassword
+                dbCursor.execute("""INSERT INTO users (userid, username, password) VALUES (%s, %s, %s)""", (newUserID, newUsername, newPassword))
+                db.commit()
+                c.userAdded = 1
 
         if 'delUser' in request.params:
-            c.toDelete = request.params['delUser']
+            toDelete = request.params['delUser']
+            dbCursor = db.cursor()
+            dbCursor.execute("""DELETE FROM users WHERE userid = %s""", (toDelete,))
+            db.commit()
+            c.userDeleted = 1
         else:
-            c.toDelete = 0 
+            c.userDeleted = 0
+
 
         if 'delAllUsers' in request.params:
-            c.deleteAll = 1
-        else:
-            c.deleteAll = 0
+            dbCursor = db.cursor()
+            dbCursor.execute("""DELETE FROM users""")
+            db.commit()
+            c.userDeleted = 2
         
+        c.user = getUsers(db)
+        
+
         c.loginError = 0
         return render('/users.mako')
 
@@ -75,6 +117,10 @@ class MaincontrollerController(BaseController):
                 c.deleteAll = 0
                 c.toDelete = 0
                 c.newUserSet = 0
+                c.userAdded = 0
+                c.userDeleted = 0
+                c.addError = ''
+                c.user = getUsers(db)
                 return render('users.mako')
     
     def logout(self):

@@ -7,7 +7,9 @@
 #include <string.h>
 #include <errno.h>
 
-void createLinks();
-void destroyLinks();
+
+/*Function used to send data through a link, it can send any message from one node to another */
 void writeToLink(char * linkName, char * msg);
+
+/*Reads from the link specified as linkName, gets put in to returnMsg */
 void readFromLink(char * linkName, char * returnMsg);

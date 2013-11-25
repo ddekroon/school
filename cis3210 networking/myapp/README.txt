@@ -2,6 +2,11 @@ Derek Dekroon
 0709999
 ddekroon@uoguelph.ca
 
+Networking lab 10
+
+Do what you want, hope it works!
+
+
 Networking lab 8
 
 To use this lab go to the deafult website and choose the flickr link (again).
